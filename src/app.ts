@@ -1,5 +1,6 @@
 import cors from "cors";
 import express, { Request, Response } from "express";
+import { authRoutes } from "./modules/auth/auth.route";
 
 const app = express();
 
@@ -19,5 +20,7 @@ app.get("/", (req: Request, res: Response) => {
     message: "Welcome to the RentNest API Server",
   });
 });
+
+app.use("/api/v1/auth", authRoutes);
 
 export default app;
